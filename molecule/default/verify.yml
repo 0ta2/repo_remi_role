@@ -1,0 +1,14 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  tasks:
+  - name: Check Installed a Remi Repository.
+    package_facts:
+      manager: auto
+
+  - name: Test if Remi Repository is installed.
+    assert:
+      that:
+        - "'remi-release' in ansible_facts.packages"
