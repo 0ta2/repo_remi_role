@@ -15,10 +15,7 @@ Requirements
 Role Variables
 --------------
 
-| 変数名 | 役割 |
-|--------|------|
-|        |      |
-
+特になし。
 
 Dependencies
 ------------
