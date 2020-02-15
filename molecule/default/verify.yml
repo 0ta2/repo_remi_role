@@ -8,6 +8,11 @@
     package_facts:
       manager: auto
 
+  - name: Test if EPEL Repository is installed.
+    assert:
+      that:
+        - "'epel-release' in ansible_facts.packages"
+
   - name: Test if Remi Repository is installed.
     assert:
       that:
