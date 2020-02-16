@@ -20,7 +20,7 @@ Role Variables
 Dependencies
 ------------
 
-特になし
+特になし。
 
 Example Playbook
 ----------------
