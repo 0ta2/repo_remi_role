@@ -12,6 +12,7 @@
     assert:
       that:
         - "'epel-release' in ansible_facts.packages"
+    when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
 
   - name: Test if Remi Repository is installed.
     assert:
