@@ -10,11 +10,21 @@
     state: "present"
   when: ansible_distribution == "CentOS"
 
+- rpm_key:
+    state: present
+    key: https://rpms.remirepo.net/RPM-GPG-KEY-remi2018
+  when: ansible_distribution == "RedHat"
+
 - name: Install Remi Repository(RHL).
   dnf:
     name: "https://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
     state: "present"
   when: ansible_distribution == "RedHat"
+
+- rpm_key:
+    status: present
+    key: https://rpms.remirepo.net/RPM-GPG-KEY-remi2019
+  when: ansible_distribution == "Fedora"
 
 - name: Install Remi Repository(Fedora).
   dnf:
