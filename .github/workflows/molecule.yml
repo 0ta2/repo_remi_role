@@ -8,7 +8,7 @@ jobs:
       max-parallel: 4
       matrix:
         MOLECULE_DISTRO: ['centos:centos7', 'centos:centos8', 'fedora:30', 'fedora:31']
-        python-version: ['3.5']
+        python-version: ['3.8']
 
     steps:
       - name: Check out code.
