@@ -4,8 +4,9 @@
     name: "epel-release"
     state: "present"
 
-- rpm_key:
-    status: present
+- name: Install RPM-GPG-KEY-remi.
+  rpm_key:
+    status: "present"
     key: https://rpms.remirepo.net/RPM-GPG-KEY-remi
   when: ansible_distribution == "CentOS"
 
@@ -15,7 +16,8 @@
     state: "present"
   when: ansible_distribution == "CentOS"
 
-- rpm_key:
+- name: Install RPM-GPG-KEY-remi2018.
+  rpm_key:
     state: present
     key: https://rpms.remirepo.net/RPM-GPG-KEY-remi2018
   when: ansible_distribution == "RedHat"
@@ -26,7 +28,8 @@
     state: "present"
   when: ansible_distribution == "RedHat"
 
-- rpm_key:
+- name: Install RPM-GPG-KEY-remi2019.
+  rpm_key:
     status: present
     key: https://rpms.remirepo.net/RPM-GPG-KEY-remi2019
   when: ansible_distribution == "Fedora"
