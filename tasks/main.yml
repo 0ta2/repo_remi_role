@@ -1,6 +1,6 @@
 ---
 - import_tasks: CentOS.yml
-  when: ansible_facts['os_family'] == "CentOS"
+  when: ansible_distribution == "CentOS"
 
 - import_tasks: Fedora.yml
-  when: ansible_facts['os_family'] == "Fedora"
+  when: ansible_distribution == "Fedora"
