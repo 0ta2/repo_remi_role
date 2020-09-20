@@ -1,0 +1,27 @@
+---
+- name: Import RPM-GPG-KEY-remi.
+  rpm_key:
+    state: "present"
+    key: "https://rpms.remirepo.net/RPM-GPG-KEY-remi"
+  when: ansible_distribution_major_version == "7"
+
+- name: Import RPM-GPG-KEY-remi2018.
+  rpm_key:
+    state: "present"
+    key: "https://rpms.remirepo.net/RPM-GPG-KEY-remi2018"
+  when: ansible_distribution_major_version == "8"
+
+- name: Import RPM-GPG-KEY-EPEL-x.
+  rpm_key:
+    state: "present"
+    key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+
+- name: Install EPEL Repository(RHL).
+  yum:
+    state: "present"
+    name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+
+- name: Install Remi Repository(RHL).
+  package:
+    state: "present"
+    name: "https://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"

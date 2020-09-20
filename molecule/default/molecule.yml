@@ -10,5 +10,6 @@ platforms:
     command: /sbin/init
 provisioner:
   name: ansible
+  log: true
 verifier:
   name: ansible
