@@ -1,26 +1,31 @@
 ---
 - name: Install EPEL Repository.
   package:
-    name: "epel-release"
     state: "present"
+    name: "epel-release"
 
 - name: Install RPM-GPG-KEY-remi.
   rpm_key:
-    state: present
+    state: "present"
     key: https://rpms.remirepo.net/RPM-GPG-KEY-remi
   when: ansible_distribution == "CentOS"
 
 - name: Install Remi Repository(RHL).
   package:
-    name: "https://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
     state: "present"
+    name: "https://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
   when: ansible_distribution == "CentOS"
 
 - name: Install RPM-GPG-KEY-remi2018.
   rpm_key:
-    state: present
-    key: https://rpms.remirepo.net/RPM-GPG-KEY-remi2018
+    state: "present"
+    key: "https://rpms.remirepo.net/RPM-GPG-KEY-remi2018"
   when: ansible_distribution == "RedHat"
+
+- name: Install RPM-GPG-KEY-EPEL-8.
+  rpm_key:
+      state: present
+      key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8
 
 - name: Install Remi Repository(RHL).
   dnf:
@@ -30,12 +35,12 @@
 
 - name: Install RPM-GPG-KEY-remi2019.
   rpm_key:
-    state: present
-    key: https://rpms.remirepo.net/RPM-GPG-KEY-remi2019
+    state: "present"
+    key: "https://rpms.remirepo.net/RPM-GPG-KEY-remi2019"
   when: ansible_distribution == "Fedora"
 
 - name: Install Remi Repository(Fedora).
   dnf:
-    name: "https://rpms.remirepo.net/fedora/remi-release-{{ ansible_distribution_major_version }}.rpm"
     state: "present"
+    name: "https://rpms.remirepo.net/fedora/remi-release-{{ ansible_distribution_major_version }}.rpm"
   when: ansible_distribution == "Fedora"
