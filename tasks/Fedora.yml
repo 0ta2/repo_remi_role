@@ -1,8 +1,8 @@
 ---
-- name: Import RPM-GPG-KEY-remi2018.
+- name: Import RPM-GPG-KEY-remi2020.
   rpm_key:
     state: "present"
-    key: https://rpms.remirepo.net/RPM-GPG-KEY-remi2019
+    key: https://rpms.remirepo.net/RPM-GPG-KEY-remi2020
 
 - name: Install Remi Repository(Fedora).
   dnf:
